@@ -11,6 +11,7 @@ void main() async {
   // hive local database
   await Hive.initFlutter();
   await Hive.openBox("my_database");
+  await Hive.openBox("sign_up_database");
 
   runApp(const MyApp());
 }

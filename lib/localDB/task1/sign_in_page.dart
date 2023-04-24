@@ -28,6 +28,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo,
       body: Form(
         key: formKey,
         child: Center(
@@ -53,14 +54,16 @@ class _SignInState extends State<SignIn> {
                   child: Column(
                     children:  [
                       const SizedBox(height: 20,),
-                      const Text("WELCOME BACK!",style: TextStyle(color: Colors.black,fontSize: 30,fontWeight: FontWeight.bold),),
+                      const Text("WELCOME BACK!",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold),),
                       const SizedBox(height: 8,),
-                      const Text("Sign in to Continue",style: TextStyle(color: Colors.black,fontSize: 17,fontWeight: FontWeight.bold),),
+                      const Text("Sign in to Continue",style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.bold),),
                       const SizedBox(height: 40,),
                       TextFormField(
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.perm_identity),
+                        style: const TextStyle(color: Colors.white),
+                        decoration:   const InputDecoration(
+                          prefixIcon: Icon(Icons.perm_identity,color: Colors.white,),
                           labelText: 'Username',
+                          labelStyle: TextStyle(color: Colors.white),
                         ),
                         validator: (value){
                           if(value!=null && value.isEmpty){
@@ -72,9 +75,11 @@ class _SignInState extends State<SignIn> {
                       ),
                       const SizedBox(height: 10,),
                       TextFormField(
+                        style: const TextStyle(color: Colors.white),
                         decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.lock),
+                          prefixIcon: Icon(Icons.lock,color: Colors.white,),
                           labelText: 'Password',
+                          labelStyle: TextStyle(color: Colors.white),
                         ),
                         validator: (value){
                           if(value != null && value.isEmpty){
@@ -85,7 +90,7 @@ class _SignInState extends State<SignIn> {
                         onChanged: (value) => setState(() =>password=value),
                       ),
                       const SizedBox(height: 13,),
-                      const Text("Forgot password?",style: TextStyle(color: Colors.black,fontSize: 17,fontWeight: FontWeight.normal),),
+                      const Text("Forgot password?",style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.normal),),
                       const SizedBox(height: 20,),
                       ElevatedButton(
                           onPressed: (){
@@ -94,6 +99,7 @@ class _SignInState extends State<SignIn> {
                               var user = UserLogin(userName,password);
                               HiveService.saveUser(user);
                               HiveService.fetchUser();
+                              Navigator.pushNamed(context, SignUp.id);
                             }
                           },
                           style: ElevatedButton.styleFrom(
@@ -104,11 +110,11 @@ class _SignInState extends State<SignIn> {
                           child:const Icon(Icons.arrow_right_alt,color: Colors.white,size: 30,),
 
                       ),
-                      const SizedBox(height: 70,),
+                      const SizedBox(height: 120,),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have an account yet?",style: TextStyle(color: Colors.black,fontSize: 17,fontWeight: FontWeight.normal),),
+                          const Text("Don't have an account yet?",style: TextStyle(color: Colors.white,fontSize: 17,fontWeight: FontWeight.normal),),
                           TextButton(
                             onPressed: (){
                               Navigator.pushNamed(context, SignUp.id);
