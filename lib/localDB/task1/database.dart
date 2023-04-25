@@ -1,19 +1,36 @@
-import 'package:hive/hive.dart';
-import 'package:newtask/localDB/task1/sign_up_obj.dart';
+import 'package:flutter/material.dart';
+//import 'package:newtask/localDB/hive_service.dart';
+// import 'package:newtask/localDB/userData.dart';
+import 'package:newtask/shared/serviceClass.dart';
 
-class HiveDatabase {
-  static var box = Hive.box("sign_up_database");
+class Database extends StatefulWidget {
+  const Database({Key? key}) : super(key: key);
 
-  static void saveData(UserSignUp userLogin) {
-    box.put("users", userLogin.toJson());
+  @override
+  State<Database> createState() => _DatabaseState();
+}
+
+class _DatabaseState extends State<Database> {
+
+
+  @override
+  void initState() {
+    super.initState();
+
+    // var users = User("alish@gmail.com", "123qwe");
+    // HiveService.saveUser(users);
+    // HiveService.fetchUser();
+    // HiveService.removeUser();
+    //HiveService.updateUser(users.email);
+
+
   }
 
-  static UserSignUp fetchData() {
-    var userLogin = UserSignUp.fromJson(box.get("users"));
-    return userLogin;
-  }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
 
-  static void removeData() async {
-    box.delete("users");
+
+    );
   }
 }

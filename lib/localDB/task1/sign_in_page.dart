@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newtask/localDB/task1/sign_up_page.dart';
 import 'package:newtask/localDB/task1/user_obj.dart';
 
-import '../hive_service.dart';
+//import '../hive_service.dart';
 import 'database.dart';
 
 class SignIn extends StatefulWidget {
@@ -97,8 +97,8 @@ class _SignInState extends State<SignIn> {
                             final isValid = formKey.currentState!.validate();
                             if(isValid){
                               var user = UserLogin(userName,password);
-                              HiveService.saveUser(user);
-                              HiveService.fetchUser();
+                              // HiveService.saveUser(user);
+                              // HiveService.fetchUser();
                               Navigator.pushNamed(context, SignUp.id);
                             }
                           },

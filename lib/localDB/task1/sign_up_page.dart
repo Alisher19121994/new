@@ -119,8 +119,8 @@ class _SignUpState extends State<SignUp> {
                           final isValid = formKey.currentState!.validate();
                           var users = UserSignUp(userName, eMail, phoneNumber, passWord);
                           if(isValid){
-                            HiveDatabase.saveData(users);
-                            HiveDatabase.fetchData();
+                            // HiveDatabase.saveData(users);
+                            // HiveDatabase.fetchData();
                           }
                         },
                         style: ElevatedButton.styleFrom(
